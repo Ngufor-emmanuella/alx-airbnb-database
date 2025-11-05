@@ -1,4 +1,4 @@
-# creating indexes for the identified columns:
+-- Creating indexes for high-usage columns
 
 -- Create an index on the User table for the email column
 CREATE INDEX idx_user_email ON users(email);
@@ -15,12 +15,13 @@ CREATE INDEX idx_property_location ON properties(location);
 -- Create an index on the Property table for the price column
 CREATE INDEX idx_property_price ON properties(price);
 
-
-####  EXPLAIN command allows you to see how the database engine plans to execute your query, including whether it will use any indexes.
-
+-- Measure query performance before adding indexes
+-- This command allows you to see how the database engine plans to execute your query
 EXPLAIN SELECT * FROM bookings WHERE user_id = 1;
 
-####  ANALYZE command can be used to gather statistics about the distribution of data in the table, which helps the query planner make better decisions.
-
+-- Analyze the bookings table to gather statistics
 ANALYZE bookings;
 
+-- After running the above commands, run the EXPLAIN command again to see the impact of the indexes
+-- Measure query performance after adding indexes
+EXPLAIN SELECT * FROM bookings WHERE user_id = 1;
