@@ -1,4 +1,4 @@
--- write a query to Find the total number of bookings made by each user using the COUNT function and GROUP BY clause.
+-- Query to find the total number of bookings made by each user using the COUNT function and GROUP BY clause
 SELECT 
     u.user_id,
     u.first_name,
@@ -15,8 +15,7 @@ GROUP BY
 ORDER BY 
     total_bookings DESC;
 
-
---Rank properties based on total bookings received using RANK()
+-- Query to rank properties based on total bookings received using RANK()
 SELECT 
     p.property_id,
     p.name AS property_name,
